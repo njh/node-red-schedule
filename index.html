@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Node-RED Schedule</title>
+  <script>var $nodeRedAdminRoot = "/nodered/";</script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+  <link rel="stylesheet" href="style.css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+  <meta charset="utf-8" />
+</head>
+
+
+<body spellcheck="false">
+
+  <div class="navbar navbar-inverse navbar-static-top">
+      <div class="navbar-inner">
+          <div class="container-fluid">
+              <a class="brand" href="#"><img src="node-red.png"> <span class="red">Node-RED Schedule</span> </a>
+              <div class="btn-group pull-right">
+                  <a class="btn btn-primary" href="/nodered/" id="btn-back"><i class="icon-home icon-white"></i> Back to Admin</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="container">
+    <table id="schedule" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hour</th>
+          <th>Min</th>
+          <th>Day</th>
+          <th>Month</th>
+          <th>Day of Week</th>
+          <th>Topic</th>
+          <th>Payload</th>
+      </thead>
+      <tbody>
+    
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="schedule.js"></script>
+  
+  <script>
+    $("#btn-back").attr("href", $nodeRedAdminRoot)
+  </script>
+
+</body>
+</html>
