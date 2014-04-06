@@ -1,6 +1,6 @@
 
 function loadFlows() {
-    $.getJSON($nodeRedAdminRoot + 'flows', function( nodes ) {
+    $.getJSON('../flows', function( nodes ) {
         for (var i in nodes) {
             var n = nodes[i];
             var days = {
