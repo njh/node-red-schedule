@@ -18,22 +18,29 @@ function loadFlows() {
     $.getJSON('../flows', function( nodes ) {
         for (var i in nodes) {
             var n = nodes[i];
-            var days = {
-                "*": "every day",
-                "1-5": "Mondays to Fridays",
-                "6-7": "Saturdays and Sundays",
-                "1": "Mondays",
-                "2": "Tuesdays",
-                "3": "Wednesdays",
-                "4": "Thursdays",
-                "5": "Fridays",
-                "6": "Saturdays",
-                "7": "Sundays"
+            var daymap = {
+                "*": "Every Day",
+                "6,0": "Weekend",
+                "1,2,3,4,5": "Weekdays",
+                "0": "Sun",
+                "1": "Mon",
+                "2": "Tue",
+                "3": "Wed",
+                "4": "Thr",
+                "5": "Fri",
+                "6": "Sat",
+                "7": "Sun"
             };
 
             if (n.type == 'inject' && n.crontab) {
                 var cronparts = n.crontab.split(" ");
-                var day = cronparts[4];
+                var days = cronparts[4];
+                if (daymap.hasOwnProperty(days)) {
+                    days = daymap[days];
+                } else {
+                    days = days.split(',').map(function(day) {return daymap[day];}).join(', ');
+                }
+
                 $('#schedule tbody').append(
                   '<tr>'+
                   '<td>'+n.name+'</td>'+
@@ -41,7 +48,7 @@ function loadFlows() {
                   '<td>'+cronparts[0]+'</td>'+
                   '<td>'+cronparts[2]+'</td>'+
                   '<td>'+cronparts[3]+'</td>'+
-                  '<td>'+days[day]+'</td>'+
+                  '<td>'+days+'</td>'+
                   '<td>'+n.topic+'</td>'+
                   '<td>'+n.payload+'</td>'+
                   '</tr>'
