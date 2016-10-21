@@ -17,7 +17,7 @@ http://localhost:1880/schedule/
 Licensing
 ---------
 
-Copyright 2014 Nicholas J Humfrey
+Copyright 2014-2016 Nicholas J Humfrey
 
 This software is licensed under the [Apache 2.0] license.
 
