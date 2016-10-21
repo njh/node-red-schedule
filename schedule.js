@@ -41,18 +41,16 @@ function loadFlows() {
                     days = days.split(',').map(function(day) {return daymap[day];}).join(', ');
                 }
 
-                $('#schedule tbody').append(
-                  '<tr>'+
-                  '<td>'+n.name+'</td>'+
-                  '<td>'+cronparts[1]+'</td>'+
-                  '<td>'+cronparts[0]+'</td>'+
-                  '<td>'+cronparts[2]+'</td>'+
-                  '<td>'+cronparts[3]+'</td>'+
-                  '<td>'+days+'</td>'+
-                  '<td>'+n.topic+'</td>'+
-                  '<td>'+n.payload+'</td>'+
-                  '</tr>'
-                );
+                var row = $('<tr/>').appendTo('#schedule tbody');
+                $('<td/>', { text: n.name}).appendTo(row);
+                $('<td/>', { text: cronparts[1]}).appendTo(row);
+                $('<td/>', { text: cronparts[0]}).appendTo(row);
+                $('<td/>', { text: cronparts[2]}).appendTo(row);
+                $('<td/>', { text: cronparts[3]}).appendTo(row);
+                $('<td/>', { text: days}).appendTo(row);
+                $('<td/>', { text: n.topic}).appendTo(row);
+                $('<td/>', { text: n.payload}).appendTo(row);
+                
             }
         }
     });
